@@ -19,10 +19,10 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 - [ ] a display showing the question card
 - [ ] a display showing the hint
   - [ ] button to accept hint
-- [ ] a display showing player score
+- [x] a display showing player score
 - [ ] an input for player answer
 - [ ] a display tracking players highest score
-- [ ] a display which shows player time remaining
+- [x] a display which shows player time remaining
 - [ ] a button to start timer / start game
 - [ ] styling to differentiate different categories
     - [ ] include a key so players can check this / some form of header stating which category the prompt currently falls under

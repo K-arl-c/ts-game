@@ -4,10 +4,52 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Phraser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet">
   </head>
   <body>
-    <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <div class="playerCard">
+
+      <div class="playerCard__top">
+        <div class="playerCard__score">
+          <div class="score__current">
+              <p id="playerScore">Player Score: 0</p>
+          </div>
+          <div class="score__highest">
+              <p id="highestScore">High Score: 0</p>
+          </div>
+        </div>
+        <div class="playerCard__title"><h1>Phraser</h1></div>
+        <div class="playerCard__timer">
+            <p id="timeRemaining">Time Remaining: 120</p>
+        </div>
+      </div>
+      
+
+      <div class="playerCard__middle">
+        <div class="playerCard__question">
+        <p>PROMPT / QUESTION WILL SHOW HERE --PLACEHOLDER --</p>
+              <div class="playerCard__hint">
+                <div class="hint__prompt"><p id="promptForHint">Need a hint?</p></div>
+                <div class="hint__button"><button>Click Here!</button></div>
+              </div>
+        </div>
+      </div>
+
+      <div class="playerCard__bottom"> 
+        <div class="playerCard__answer">
+          <input type="text" id="playerInput" placeholder="Type your Answer Here!">
+          <button>Submit Answer</button>
+        </div>
+      </div>
+      
+      <div class="playerCard__start"></div>
+    </div>
+
   </body>
 </html>
