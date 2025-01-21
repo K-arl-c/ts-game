@@ -31,9 +31,9 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 
 ### TypeScript Logic
 - [ ] a function that handles clicks on buttons to interact with game
-    - [ ] button for submit answer
-    - [ ] button for start game / timer
-    - [ ] button for 'give hint'
+    - [x] button for submit answer
+    - [x] button for start game / timer
+    - [x] button for 'give hint'
 - [x] a function that will generate a random question
       - [x] On game start 
       - [x] On correct answer being inputted

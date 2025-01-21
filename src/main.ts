@@ -14,7 +14,7 @@ const startGame = document.querySelector<HTMLButtonElement>("#startGame");
 // game is 120 seconds long
 const GAME_TIME = 120
 
-let questionForUser
+let questionForUser: string
 
 // Countdown timer
 function startCountdown(duration: number) {
@@ -72,21 +72,24 @@ const checkAnswer = () =>{
     const playerInput = playerAnswer?.value.trim().toLowerCase();
 
       if (playerInput === questionForUser.answer.toLowerCase()) {
-          alert("Correct! Generating a new question...");
-          const generatedQ = randomQuestion();
-          questionForUser = generatedQ;
-    if (currentQuestion) {
-      currentQuestion.textContent = generatedQ.question;
-}
-playerAnswer.value = "";
+        alert("Correct! Generating a new question...");
+        const generatedQ = randomQuestion();
+        questionForUser = generatedQ;
+        currentQuestion.textContent = generatedQ.question;
+        currentHint.textContent = "Need a hint?";
+        playerAnswer.value = "";
       } else {
         alert("Incorrect!");
-      }
+        }
     }
 
-
+// to display hint when requested
+const displayHint = () => {
+    currentHint.textContent = questionForUser.hint;
+}
 
 // event listeners
 
 startGame.addEventListener("click", runGame);
 submitButton.addEventListener("click", checkAnswer);
+hintButton?.addEventListener("click", displayHint);
