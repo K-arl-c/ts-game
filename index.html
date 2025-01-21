@@ -13,6 +13,11 @@
   </head>
   <body>
     <script type="module" src="/src/main.ts"></script>
+    
+    <div class="startButton">
+      <button id="startGame">Start!</button>
+    </div>
+    
     <div class="playerCard">
 
       <div class="playerCard__top">
@@ -33,10 +38,10 @@
 
       <div class="playerCard__middle">
         <div class="playerCard__question">
-        <p>PROMPT / QUESTION WILL SHOW HERE --PLACEHOLDER --</p>
+        <p id="currentQuestion">PROMPT / QUESTION WILL SHOW HERE --PLACEHOLDER --</p>
               <div class="playerCard__hint">
                 <div class="hint__prompt"><p id="promptForHint">Need a hint?</p></div>
-                <div class="hint__button"><button>Click Here!</button></div>
+                <div class="hint__button"><button id="hintButton">Click Here!</button></div>
               </div>
         </div>
       </div>
@@ -44,11 +49,10 @@
       <div class="playerCard__bottom"> 
         <div class="playerCard__answer">
           <input type="text" id="playerInput" placeholder="Type your Answer Here!">
-          <button>Submit Answer</button>
+          <button id="answerSubmit">Submit Answer</button>
         </div>
       </div>
       
-      <div class="playerCard__start"></div>
     </div>
 
   </body>
