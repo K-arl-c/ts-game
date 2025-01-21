@@ -38,8 +38,6 @@ function startCountdown(duration: number) {
 }
 
 
-
-
 // Questions / prompts for game - TO DO - put this on a seperate doc to import
 
 const questions: {question: string, answer: string, hint: string, category: string}[] = [

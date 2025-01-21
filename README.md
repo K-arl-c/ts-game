@@ -30,7 +30,7 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 - [ ] styling to show if the answer is correct
 
 ### TypeScript Logic
-- [ ] a function that handles clicks on buttons to interact with game
+- [x] a function that handles clicks on buttons to interact with game
     - [x] button for submit answer
     - [x] button for start game / timer
     - [x] button for 'give hint'
@@ -40,7 +40,7 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 - [x] a function that will start the game with a 120 seconds timer. This counts down and stops once time has elapsed.
     - [ ] DOM manipulation to change style to show time remaining (e.g. background gradienting to red to show time running out)
 - [ ] a function that keeps track of the users score based on correct answers and hints used 
-    - [ ] +3 for no hints
+    - [ ] +2 for no hints
     - [ ] +1 for 1 hint
 - [ ] a function that stores user highscore and notifies them when this has been beaten
 
