@@ -34,9 +34,9 @@ Players will have 2 minutes to guess as many correct answers they can based on p
     - [ ] button for submit answer
     - [ ] button for start game / timer
     - [ ] button for 'give hint'
-- [ ] a function that will generate a random question
-      - [ ] On game start 
-      - [ ] On correct answer being inputted
+- [x] a function that will generate a random question
+      - [x] On game start 
+      - [x] On correct answer being inputted
 - [x] a function that will start the game with a 120 seconds timer. This counts down and stops once time has elapsed.
     - [ ] DOM manipulation to change style to show time remaining (e.g. background gradienting to red to show time running out)
 - [ ] a function that keeps track of the users score based on correct answers and hints used 
@@ -48,4 +48,4 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 
 ![alt text](image.png)
 
-this will be useful to access everything individually as a strinG i.e - all values 
+this will be useful to access everything individually as a string i.e - all values 

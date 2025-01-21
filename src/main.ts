@@ -1,5 +1,6 @@
 import "./../styles/styles.scss" 
 
+// Query Selectors
 const currentScore = document.querySelector<HTMLParagraphElement>("#playerScore");
 const highScore = document.querySelector<HTMLParagraphElement>("#highestScore");
 const timeRemaining = document.querySelector<HTMLParagraphElement>("#timeRemaining");
@@ -13,6 +14,7 @@ const startGame = document.querySelector<HTMLButtonElement>("#startGame");
 // game is 120 seconds long
 const GAME_TIME = 120
 
+let questionForUser
 
 // Countdown timer
 function startCountdown(duration: number) {
@@ -54,11 +56,37 @@ const randomQuestion = () => {
     return questions[randomNumber];
 }
 
+// logic for the game running
+const runGame = () =>{
+    const generatedQ = randomQuestion()
+    questionForUser = generatedQ;
+    currentQuestion.textContent= generatedQ.question;
+    currentHint.textContent = "Need a hint?";
+    startCountdown(GAME_TIME);
+};
+
+// function to check is players answer matches answer stored in object
+
+const checkAnswer = () =>{
+    const generatedQ = randomQuestion()
+    const playerInput = playerAnswer?.value.trim().toLowerCase();
+
+      if (playerInput === questionForUser.answer.toLowerCase()) {
+          alert("Correct! Generating a new question...");
+          const generatedQ = randomQuestion();
+          questionForUser = generatedQ;
+    if (currentQuestion) {
+      currentQuestion.textContent = generatedQ.question;
+}
+playerAnswer.value = "";
+      } else {
+        alert("Incorrect!");
+      }
+    }
 
 
 
 // event listeners
 
-startGame.addEventListener("click", () => {
-    startCountdown(GAME_TIME);
-  });
+startGame.addEventListener("click", runGame);
+submitButton.addEventListener("click", checkAnswer);
