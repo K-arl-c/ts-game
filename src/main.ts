@@ -10,6 +10,10 @@ const hintButton = document.querySelector<HTMLButtonElement>("#hintButton");
 const playerAnswer = document.querySelector<HTMLInputElement>("#playerInput");
 const submitButton = document.querySelector<HTMLButtonElement>("#answerSubmit");
 const startGame = document.querySelector<HTMLButtonElement>("#startGame");
+const showHintsDiv = document.querySelector<HTMLDivElement>(".playerCard__hint")
+const showAnswerDiv = document.querySelector<HTMLDivElement>(".playerCard__answer")
+
+
 
 // How long is the game (in seconds)
 const GAME_TIME = 10
@@ -31,10 +35,11 @@ function startCountdown(duration: number) {
 
     if (duration <= 0) {
       clearInterval(timer);
-      if (timeRemaining) {
         timeRemaining.textContent = "Time's up!";
-      }
-     
+        showHintsDiv.classList.add("hidden");
+        showAnswerDiv.classList.add("hidden");
+        startGame.classList.remove("hidden");
+        currentQuestion.textContent = `Game Over! You scored ${currentScoreValue} and your highscore is ${highScoreValue}`;
     }
 
     duration--;
@@ -58,15 +63,19 @@ const randomQuestion = () => {
     return questions[randomNumber];
 }
 
-// Resetting everything for a fresh game
+// Logic for running game from start
 const runGame = () =>{
-    const generatedQ = randomQuestion()
+    currentScoreValue = 0;
+    currentScore.textContent = `Player Score: ${currentScoreValue}`;
+    const generatedQ = randomQuestion();
     questionForUser = generatedQ;
     currentQuestion.textContent= generatedQ.question;
     currentHint.textContent = "Need a hint?";
     startCountdown(GAME_TIME);
-};
-
+    showHintsDiv.classList.remove("hidden");
+    showAnswerDiv.classList.remove("hidden");
+    startGame.classList.add("hidden");
+}
 // function to check is players answer matches answer stored in object
 
 const checkAnswer = () =>{
@@ -80,9 +89,13 @@ const checkAnswer = () =>{
         } else {
           currentScoreValue +=1;
         }
+        if(currentScoreValue >= highScoreValue){
+          highScoreValue = currentScoreValue
+        }
         const generatedQ = randomQuestion();
         questionForUser = generatedQ;
         currentScore.textContent = `Player Score: ${currentScoreValue}`;
+        highScore.textContent = `High Score: ${highScoreValue}`
         currentQuestion.textContent = generatedQ.question;
         currentHint.textContent = "Need a hint?";
         playerAnswer.value = "";
