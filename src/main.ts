@@ -11,8 +11,12 @@ const playerAnswer = document.querySelector<HTMLInputElement>("#playerInput");
 const submitButton = document.querySelector<HTMLButtonElement>("#answerSubmit");
 const startGame = document.querySelector<HTMLButtonElement>("#startGame");
 
-// game is 120 seconds long
-const GAME_TIME = 120
+// How long is the game (in seconds)
+const GAME_TIME = 10
+
+let currentScoreValue: number = 0;
+let highScoreValue: number = 0;
+
 
 let questionForUser: string
 
@@ -54,7 +58,7 @@ const randomQuestion = () => {
     return questions[randomNumber];
 }
 
-// logic for the game running
+// Resetting everything for a fresh game
 const runGame = () =>{
     const generatedQ = randomQuestion()
     questionForUser = generatedQ;
@@ -71,13 +75,20 @@ const checkAnswer = () =>{
 
       if (playerInput === questionForUser.answer.toLowerCase()) {
         alert("Correct! Generating a new question...");
+        if(currentHint?.textContent === "Need a hint?"){
+          currentScoreValue +=2;
+        } else {
+          currentScoreValue +=1;
+        }
         const generatedQ = randomQuestion();
         questionForUser = generatedQ;
+        currentScore.textContent = `Player Score: ${currentScoreValue}`;
         currentQuestion.textContent = generatedQ.question;
         currentHint.textContent = "Need a hint?";
         playerAnswer.value = "";
       } else {
         alert("Incorrect!");
+        playerAnswer.value = "";
         }
     }
 
@@ -90,4 +101,16 @@ const displayHint = () => {
 
 startGame.addEventListener("click", runGame);
 submitButton.addEventListener("click", checkAnswer);
-hintButton?.addEventListener("click", displayHint);
+hintButton.addEventListener("click", displayHint);
+playerAnswer.addEventListener("keypress", (enter) =>{
+  if(enter.key == "Enter") submitButton?.click();
+})
+
+// attempting to make the start game button and submit make the users browser automatically target input
+startGame.addEventListener("click", () =>{
+  playerAnswer.focus();
+});
+
+submitButton.addEventListener("click", () =>{
+  playerAnswer.focus();
+});
