@@ -1,4 +1,5 @@
 import "./../styles/styles.scss" 
+import { questionslist } from './questions';
 
 // Query Selectors
 const currentScore = document.querySelector<HTMLParagraphElement>("#playerScore");
@@ -13,14 +14,19 @@ const startGame = document.querySelector<HTMLButtonElement>("#startGame");
 const showHintsDiv = document.querySelector<HTMLDivElement>(".playerCard__hint")
 const showAnswerDiv = document.querySelector<HTMLDivElement>(".playerCard__answer")
 
+if(!currentScore || !highScore || !timeRemaining || !currentQuestion || !currentHint || !hintButton || !playerAnswer || !submitButton || !startGame || !showHintsDiv || !showAnswerDiv){
+  throw new Error ('Some elements can not be found');
+}
+
 
 
 // How long is the game (in seconds)
-const GAME_TIME = 10
+const GAME_TIME = 120
 
 let currentScoreValue: number = 0;
 let highScoreValue: number = 0;
 
+const  questions = questionslist
 
 let questionForUser: string
 
@@ -45,17 +51,6 @@ function startCountdown(duration: number) {
     duration--;
   }, 1000);
 }
-
-
-// Questions / prompts for game - TO DO - put this on a seperate doc to import
-
-const questions: {question: string, answer: string, hint: string, category: string}[] = [
-    {question: "Star Wars Creator", answer: "George Lucas", hint: "Famous for a galaxy far, far away", category: "People"},
-    {question: "UK island, south of England", answer: "Isle of Wight", hint: "Famous for a music festival and white cliffs.", category: "World"},
-    {question: "Alerts you when visitors arrive", answer: "Doorbell", hint: "Usually rings or chimes when pressed", category: "Object"},
-    {question: "Sound of something hot cooking", answer: "Sizzling", hint: "Common when frying or grilling", category: "Action"},
-    {question: "Friendly marine mammal", answer: "Dolphin", hint: "Known for jumping and playful behaviour", category: "Nature"}
-]
 
 // generate random question
 const randomQuestion = () => {
