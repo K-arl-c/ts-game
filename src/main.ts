@@ -21,12 +21,12 @@ if(!currentScore || !highScore || !timeRemaining || !currentQuestion || !current
 
 
 // How long is the game (in seconds)
-const GAME_TIME = 120
+const GAME_TIME = 60
 
 let currentScoreValue: number = 0;
 let highScoreValue: number = 0;
 
-const  questions = questionslist
+const questions = questionslist
 
 let questionForUser: string
 

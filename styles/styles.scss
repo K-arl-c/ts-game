@@ -55,7 +55,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: lightgray;
+    background-color: rgb(48, 48, 48);
 }
 
 .playerCard{
@@ -165,4 +165,8 @@ p{
 
 .hidden{
     display: none;
+}
+
+#playerInput{
+    margin-bottom: 10px;
 }
