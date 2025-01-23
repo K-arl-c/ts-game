@@ -62,3 +62,12 @@ when the timer finishes:
 ![alt text](image.png)
 
 this will be useful to access everything individually as a string i.e - all values 
+
+To Do
+
+- remove alert on answer submission
+- make a skip button
+  - this may deduct points
+- hint button focuses on typing
+- no repeat questions
+- change styling per category 

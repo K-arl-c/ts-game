@@ -18,7 +18,7 @@
       <button id="startGame">Start!</button>
     </div>
     
-    <div class="playerCard">
+    <div class="playerCard" id="mainCard">
 
       <div class="playerCard__top">
         <div class="playerCard__score">
@@ -48,8 +48,10 @@
 
       <div class="playerCard__bottom"> 
         <div class="playerCard__answer hidden">
+          <p id="answerConfirmation">Player Answer was Correct!</p>
           <input type="text" id="playerInput" placeholder="Type your Answer Here!">
           <button id="answerSubmit">Submit Answer</button>
+          <button id="skipQuestion">Skip</button>
         </div>
       </div>
       
