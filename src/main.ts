@@ -21,9 +21,10 @@ const title = document.querySelector<HTMLHeadElement>("#title");
 const instructions = document.querySelector<HTMLButtonElement>("#instructions")
 const overlay = document.querySelector<HTMLDivElement>("#overlay")
 
-if(!currentScore || !highScore || !timeRemaining || !currentQuestion || !currentHint || !hintButton || !playerAnswer || !submitButton || !startGame || !showHintsDiv || !showAnswerDiv || !answerConfirmation || !skipButton || !cardBorder || !title || !instructions || !overlay){
+if(!currentScore || !timeRemaining || !playerAnswer|| !showHintsDiv|| !showAnswerDiv || !startGame || !instructions || !highScore || !timeRemaining || !currentQuestion || !currentHint || !hintButton || !playerAnswer || !submitButton || !startGame || !showHintsDiv || !showAnswerDiv || !answerConfirmation || !skipButton || !cardBorder || !title || !instructions || !overlay || !innerDiv){
   throw new Error ('Some elements can not be found');
 }
+
 
 
 
@@ -35,8 +36,8 @@ let highScoreValue: number = 0;
 
 const questions = questionslist;
 
-let questionForUser: string;
-let usedQuestions = []
+let questionForUser: any;
+let usedQuestions: typeof questionslist
 
 // Style border to current question
 const toggleBorderStyle = () =>{
@@ -65,13 +66,13 @@ function startCountdown(duration: number) {
 
     if (duration <= 0) {
       clearInterval(timer);
-        timeRemaining.textContent = "Time's up!";
-        playerAnswer.value = "";
-        showHintsDiv.classList.add("hidden");
-        showAnswerDiv.classList.add("hidden");
-        startGame.classList.remove("hidden");
-        instructions.classList.remove("hidden");
-        currentQuestion.textContent = `Game Over! You scored ${currentScoreValue} and your highscore is ${highScoreValue}`;
+        if(timeRemaining)timeRemaining.textContent = "Time's up!";
+        if(playerAnswer)playerAnswer.value = "";
+        if(showHintsDiv)showHintsDiv.classList.add("hidden");
+        if(showAnswerDiv)showAnswerDiv.classList.add("hidden");
+        if(startGame)startGame.classList.remove("hidden");
+        if(instructions)instructions.classList.remove("hidden");
+        if(currentQuestion)currentQuestion.textContent = `Game Over! You scored ${currentScoreValue} and your highscore is ${highScoreValue}`;
         toggleBorderStyle();
         phraserTitle();
 }
@@ -82,12 +83,12 @@ function startCountdown(duration: number) {
 
 // generate random question
 const randomQuestion = () => {
-   const remainingQuestions = questions.filter(q =>!usedQuestions.includes(q));
-   if(remainingQuestions.length === 0){
-    return null;
-   }
-    let randomNumber = Math.floor(Math.random()*remainingQuestions.length);
-    return remainingQuestions[randomNumber];
+    if (usedQuestions.length === questions.length) {
+    usedQuestions = [];
+    }
+  const remainingQuestions = questions.filter(q => !usedQuestions.includes(q));
+  const randomNumber = Math.floor(Math.random() * remainingQuestions.length);
+  return remainingQuestions[randomNumber];
 }
 
 // Logic for running game from start
@@ -114,7 +115,6 @@ const runGame = () =>{
 // function to check is players answer matches answer stored in object
 
 const checkAnswer = () =>{
-    const generatedQ = randomQuestion()
     const playerInput = playerAnswer?.value.trim().toLowerCase();
 
       if (playerInput === questionForUser.answer.toLowerCase()) {
