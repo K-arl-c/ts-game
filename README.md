@@ -38,7 +38,6 @@ Players will have 2 minutes to guess as many correct answers they can based on p
       - [x] On game start 
       - [x] On correct answer being inputted
 - [x] a function that will start the game with a 120 seconds timer. This counts down and stops once time has elapsed.
-    - [ ] DOM manipulation to change style to show time remaining (e.g. background gradienting to red to show time running out)
 - [x] a function that keeps track of the users score based on correct answers and hints used 
     - [x] +2 for no hints
     - [x] +1 for 1 hint
@@ -50,7 +49,7 @@ To Do
 [x] remove alert on answer submission
 [x] make a skip button
 [x] hint button focuses on typing
-[ ] no repeat questions
+[x] no repeat questions
 [x]change styling per category 
 [x]remove hint button once pressed
 [x]change name of header to match the current category
