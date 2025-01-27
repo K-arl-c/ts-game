@@ -24,7 +24,7 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 - [x] a display tracking players highest score
 - [x] a display which shows player time remaining
 - [x] a button to start timer / start game
-- [ ] styling to differentiate different categories
+- [x] styling to differentiate different categories
     - [x] include a key so players can check this / some form of header stating which category the prompt currently falls under
 - [ ] accessible instructions
 - [x] styling to show if the answer is correct
@@ -56,7 +56,9 @@ To Do
 [x]change name of header to match the current category
 [x]keep input and submit / skip buttons same size 
 [ ]make more responsive for smaller screen size
-[ ]write instructions for start screen
+[x]write instructions for start screen using overlay
 
 Make score etc stack over eachother 
+
+
 

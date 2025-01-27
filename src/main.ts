@@ -18,15 +18,17 @@ const skipButton = document.querySelector<HTMLButtonElement>("#skipQuestion");
 const cardBorder = document.querySelector<HTMLDivElement>("#mainCard");
 const innerDiv = document.querySelector<HTMLDivElement>(".playerCard__question");
 const title = document.querySelector<HTMLHeadElement>("#title");
+const instructions = document.querySelector<HTMLButtonElement>("#instructions")
+const overlay = document.querySelector<HTMLDivElement>("#overlay")
 
-if(!currentScore || !highScore || !timeRemaining || !currentQuestion || !currentHint || !hintButton || !playerAnswer || !submitButton || !startGame || !showHintsDiv || !showAnswerDiv || !answerConfirmation || !skipButton || !cardBorder || !title){
+if(!currentScore || !highScore || !timeRemaining || !currentQuestion || !currentHint || !hintButton || !playerAnswer || !submitButton || !startGame || !showHintsDiv || !showAnswerDiv || !answerConfirmation || !skipButton || !cardBorder || !title || !instructions || !overlay){
   throw new Error ('Some elements can not be found');
 }
 
 
 
 // How long is the game (in seconds)
-const GAME_TIME = 120;
+const GAME_TIME = 60;
 
 let currentScoreValue: number = 0;
 let highScoreValue: number = 0;
@@ -34,6 +36,7 @@ let highScoreValue: number = 0;
 const questions = questionslist;
 
 let questionForUser: string;
+let usedQuestions = []
 
 // Style border to current question
 const toggleBorderStyle = () =>{
@@ -67,6 +70,7 @@ function startCountdown(duration: number) {
         showHintsDiv.classList.add("hidden");
         showAnswerDiv.classList.add("hidden");
         startGame.classList.remove("hidden");
+        instructions.classList.remove("hidden");
         currentQuestion.textContent = `Game Over! You scored ${currentScoreValue} and your highscore is ${highScoreValue}`;
         toggleBorderStyle();
         phraserTitle();
@@ -78,16 +82,22 @@ function startCountdown(duration: number) {
 
 // generate random question
 const randomQuestion = () => {
-    let randomNumber = Math.floor(Math.random()*questions.length);
-    return questions[randomNumber];
+   const remainingQuestions = questions.filter(q =>!usedQuestions.includes(q));
+   if(remainingQuestions.length === 0){
+    return null;
+   }
+    let randomNumber = Math.floor(Math.random()*remainingQuestions.length);
+    return remainingQuestions[randomNumber];
 }
 
 // Logic for running game from start
 const runGame = () =>{
     currentScoreValue = 0;
     currentScore.textContent = `Player Score: ${currentScoreValue}`;
+    usedQuestions = [];
     const generatedQ = randomQuestion();
     questionForUser = generatedQ;
+    usedQuestions.push(generatedQ);
     currentQuestion.textContent= generatedQ.question;
     toggleBorderStyle();
     updateCategory();
@@ -97,6 +107,7 @@ const runGame = () =>{
     showHintsDiv.classList.remove("hidden");
     showAnswerDiv.classList.remove("hidden");
     startGame.classList.add("hidden");
+    instructions.classList.add("hidden");
 }
 
 
@@ -119,7 +130,8 @@ const checkAnswer = () =>{
         toggleBorderStyle()
         const generatedQ = randomQuestion();
         questionForUser = generatedQ;
-        toggleBorderStyle()
+        usedQuestions.push(generatedQ);
+        toggleBorderStyle();
         updateCategory();
         currentScore.textContent = `Player Score: ${currentScoreValue}`;
         highScore.textContent = `High Score: ${highScoreValue}`
@@ -144,12 +156,21 @@ const skipCurrentQuestion = () =>{
         toggleBorderStyle()
         const generatedQ = randomQuestion();
         questionForUser = generatedQ;
+        usedQuestions.push(generatedQ);
         currentQuestion.textContent = generatedQ.question;
         toggleBorderStyle();
         updateCategory();
         hintButton.classList.remove("hidden");
         currentHint.textContent = "Need a hint?";
         playerAnswer.value = "";
+}
+
+const displayOverlay = () =>{
+  overlay.style.display = "block";
+}
+
+const removeOverlay = () =>{
+  overlay.style.display = "none";
 }
 
 
@@ -163,6 +184,9 @@ playerAnswer.addEventListener("keypress", (enter) =>{
 })
 
 skipButton.addEventListener("click", skipCurrentQuestion);
+
+// to bring up overlay
+instructions.addEventListener("click", displayOverlay)
 
 // attempting to make the start game button and submit make the users browser automatically target input
 startGame.addEventListener("click", () =>{
@@ -181,3 +205,4 @@ skipButton.addEventListener("click", () =>{
   playerAnswer.focus();
 });
 
+overlay.addEventListener("click", removeOverlay)
