@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/ts-game/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phraser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+  rel="stylesheet">
+    <script type="module" crossorigin src="/ts-game/assets/index-L1yFzgwm.js"></script>
+    <link rel="stylesheet" crossorigin href="/ts-game/assets/index-B8yvwb_5.css">
+  </head>
+  <body>
+    
+
+    
+    <div class="playerCard" id="mainCard">
+
+      <div id="overlay">
+        <div id="overlayText">Welcome to Phraser!<br><br>You will have 60 seconds to correctly guess the word the prompt is describing. Prompts will be
+        1 of the below 5 Categories:<br>
+        <br>
+        <span id="peopleInstruction">People</span>
+        <span id="worldInstruction">World</span>
+        <span id="objectInstruction">Object</span>
+        <span id="actionInstruction">Action</span>
+        <span id="natureInstruction">Nature</span>
+        <br>
+        <br>Answer correctly and you will gain 2 points! <br>
+        If you use a hint you will only gain 1 point!<br>
+        <br>How high can you score?<br>
+        Click anywhere to continue</div>
+      </div>
+
+      <div class="playerCard__top">
+        <div class="playerCard__score">
+          <div class="score__current">
+              <p id="playerScore">Player Score: 0</p>
+          </div>
+          <div class="score__highest">
+              <p id="highestScore">High Score: 0</p>
+          </div>
+        </div>
+        <div class="playerCard__title"><h1 id="title">Phraser</h1></div>
+        <div class="playerCard__timer">
+            <p id="timeRemaining">Time Remaining: </p>
+        </div>
+      </div>
+      
+
+      <div class="playerCard__middle">
+        <div class="playerCard__question">
+        <p id="currentQuestion">
+          Welcome to Phraser!<br>Press start to begin!
+        </p>
+              <div class="playerCard__hint hidden">
+                <div class="hint__prompt"><p id="promptForHint">Need a hint?</p></div>
+                <div class="hint__button"><button id="hintButton">Click Here!</button></div>
+              </div>
+        </div>
+      </div>
+
+      <div class="playerCard__bottom"> 
+        <div class="playerCard__answer hidden">
+          <input type="text" id="playerInput" placeholder="Type your Answer Here!">
+          <p id="answerConfirmation"></p>
+          <button id="answerSubmit">Submit Answer</button>
+          <button id="skipQuestion">Skip</button>
+          
+        </div>
+            <div class="startButton">
+              <button id="startGame">Start!</button>
+              <button id="instructions">Instructions</button>
+            </div>
+      </div>
+      
+    </div>
+
+  </body>
+</html>
