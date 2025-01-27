@@ -25,9 +25,9 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 - [x] a display which shows player time remaining
 - [x] a button to start timer / start game
 - [ ] styling to differentiate different categories
-    - [ ] include a key so players can check this / some form of header stating which category the prompt currently falls under
+    - [x] include a key so players can check this / some form of header stating which category the prompt currently falls under
 - [ ] accessible instructions
-- [ ] styling to show if the answer is correct
+- [x] styling to show if the answer is correct
 
 ### TypeScript Logic
 - [x] a function that handles clicks on buttons to interact with game
@@ -42,32 +42,21 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 - [x] a function that keeps track of the users score based on correct answers and hints used 
     - [x] +2 for no hints
     - [x] +1 for 1 hint
-- [ ] a function that stores user highscore and notifies them when this has been beaten
+- [x] a function that stores user highscore and notifies them when this has been beaten
 
-
-
-
-When the user clicks start:
-- get rid of the start button
-
-
-when the timer finishes:
-- get rid of the question
-- get rid of the hint
-- get rid of the answer entering thing
-- reappear the start button
-
-- show a message in the middle showing users score
-
-![alt text](image.png)
-
-this will be useful to access everything individually as a string i.e - all values 
 
 To Do
 
-- remove alert on answer submission
-- make a skip button
-  - this may deduct points
-- hint button focuses on typing
-- no repeat questions
-- change styling per category 
+[x] remove alert on answer submission
+[x] make a skip button
+[x] hint button focuses on typing
+[ ] no repeat questions
+[x]change styling per category 
+[x]remove hint button once pressed
+[x]change name of header to match the current category
+[x]keep input and submit / skip buttons same size 
+[ ]make more responsive for smaller screen size
+[ ]write instructions for start screen
+
+Make score etc stack over eachother 
+

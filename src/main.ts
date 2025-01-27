@@ -1,4 +1,4 @@
-import "./../styles/styles.scss" 
+import "./../styles/styles.scss" ;
 import { questionslist } from './questions';
 
 // Query Selectors
@@ -16,26 +16,39 @@ const showAnswerDiv = document.querySelector<HTMLDivElement>(".playerCard__answe
 const answerConfirmation = document.querySelector<HTMLParagraphElement>("#answerConfirmation");
 const skipButton = document.querySelector<HTMLButtonElement>("#skipQuestion");
 const cardBorder = document.querySelector<HTMLDivElement>("#mainCard");
+const innerDiv = document.querySelector<HTMLDivElement>(".playerCard__question");
+const title = document.querySelector<HTMLHeadElement>("#title");
 
-if(!currentScore || !highScore || !timeRemaining || !currentQuestion || !currentHint || !hintButton || !playerAnswer || !submitButton || !startGame || !showHintsDiv || !showAnswerDiv){
+if(!currentScore || !highScore || !timeRemaining || !currentQuestion || !currentHint || !hintButton || !playerAnswer || !submitButton || !startGame || !showHintsDiv || !showAnswerDiv || !answerConfirmation || !skipButton || !cardBorder || !title){
   throw new Error ('Some elements can not be found');
 }
 
 
 
 // How long is the game (in seconds)
-const GAME_TIME = 6000
+const GAME_TIME = 120;
 
 let currentScoreValue: number = 0;
 let highScoreValue: number = 0;
 
-const questions = questionslist
+const questions = questionslist;
 
-let questionForUser: string
+let questionForUser: string;
 
 // Style border to current question
-const toggleStyleBorder = () =>{
+const toggleBorderStyle = () =>{
       cardBorder.classList.toggle(`${questionForUser.category.toLowerCase()}`);
+      innerDiv.classList.toggle(`${questionForUser.category.toLowerCase()}Inner`);
+}
+
+// return title to original state
+const phraserTitle = () =>{
+  title.textContent = `Phraser`;
+}
+
+// Change title to match category
+const updateCategory = () =>{
+  title.textContent = `${questionForUser.category}`;
 }
 
 // Countdown timer
@@ -50,12 +63,14 @@ function startCountdown(duration: number) {
     if (duration <= 0) {
       clearInterval(timer);
         timeRemaining.textContent = "Time's up!";
+        playerAnswer.value = "";
         showHintsDiv.classList.add("hidden");
         showAnswerDiv.classList.add("hidden");
         startGame.classList.remove("hidden");
         currentQuestion.textContent = `Game Over! You scored ${currentScoreValue} and your highscore is ${highScoreValue}`;
-        toggleStyleBorder();
-    }
+        toggleBorderStyle();
+        phraserTitle();
+}
 
     duration--;
   }, 1000);
@@ -74,7 +89,9 @@ const runGame = () =>{
     const generatedQ = randomQuestion();
     questionForUser = generatedQ;
     currentQuestion.textContent= generatedQ.question;
-    toggleStyleBorder();
+    toggleBorderStyle();
+    updateCategory();
+    hintButton.classList.remove("hidden")
     currentHint.textContent = "Need a hint?";
     startCountdown(GAME_TIME);
     showHintsDiv.classList.remove("hidden");
@@ -99,13 +116,15 @@ const checkAnswer = () =>{
         if(currentScoreValue >= highScoreValue){
           highScoreValue = currentScoreValue
         }
-        toggleStyleBorder()
+        toggleBorderStyle()
         const generatedQ = randomQuestion();
         questionForUser = generatedQ;
-        toggleStyleBorder()
+        toggleBorderStyle()
+        updateCategory();
         currentScore.textContent = `Player Score: ${currentScoreValue}`;
         highScore.textContent = `High Score: ${highScoreValue}`
         currentQuestion.textContent = generatedQ.question;
+        hintButton.classList.remove("hidden")
         currentHint.textContent = "Need a hint?";
         playerAnswer.value = "";
       } else {
@@ -117,15 +136,18 @@ const checkAnswer = () =>{
 // to display hint when requested
 const displayHint = () => {
     currentHint.textContent = questionForUser.hint;
+    hintButton.classList.add("hidden")
 }
 
 // skipping a question
 const skipCurrentQuestion = () =>{
-        toggleStyleBorder()
+        toggleBorderStyle()
         const generatedQ = randomQuestion();
         questionForUser = generatedQ;
         currentQuestion.textContent = generatedQ.question;
-        toggleStyleBorder()
+        toggleBorderStyle();
+        updateCategory();
+        hintButton.classList.remove("hidden");
         currentHint.textContent = "Need a hint?";
         playerAnswer.value = "";
 }
@@ -154,3 +176,8 @@ submitButton.addEventListener("click", () =>{
 hintButton.addEventListener("click", () =>{
   playerAnswer.focus();
 });
+
+skipButton.addEventListener("click", () =>{
+  playerAnswer.focus();
+});
+

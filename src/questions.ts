@@ -20,7 +20,7 @@ export const questionslist: {question: string, answer: string, hint: string, cat
     {question: "Hot-tempered chef", answer: "Gordon Ramsay", hint: "Famous for 'Hell’s Kitchen'", category: "People"},
     {question: "Star of 'National Treasure'", answer: "Nicholas Cage", hint: "Quirky actor known for memes", category: "People"},
     {question: "US president during the Civil War", answer: "Abraham Lincoln", hint: "Wore a tall hat and freed the slaves", category: "People"},
-    {question: "Author of 'Harry Potter'", answer: "J.K. Rowling", hint: "Famous for Hogwarts and wizards", category: "People"},
+    {question: "Author of 'Harry Potter'", answer: "J K Rowling", hint: "Famous for Hogwarts and wizards", category: "People"},
     {question: "Actor that usually narrates with a deep voice", answer: "Morgan Freeman", hint: "Played God in 'Bruce Almighty'", category: "People"},
     {question: "Green ogre", answer: "Shrek", hint: "Lives in a swamp with a talking donkey", category: "People"},
     {question: "Italian city known for fashion", answer: "Milan", hint: "Hosts a famous Fashion Week", category: "World"},
