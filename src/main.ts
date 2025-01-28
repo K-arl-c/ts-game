@@ -206,3 +206,9 @@ skipButton.addEventListener("click", () =>{
 });
 
 overlay.addEventListener("click", removeOverlay)
+
+// attempting to prevent scrolling when user clicks input on mobile
+
+playerAnswer.addEventListener("focus",function(event){
+  event.preventDefault();
+});
