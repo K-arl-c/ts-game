@@ -26,7 +26,7 @@ Players will have 2 minutes to guess as many correct answers they can based on p
 - [x] a button to start timer / start game
 - [x] styling to differentiate different categories
     - [x] include a key so players can check this / some form of header stating which category the prompt currently falls under
-- [ ] accessible instructions
+- [x] accessible instructions
 - [x] styling to show if the answer is correct
 
 ### TypeScript Logic
@@ -43,21 +43,6 @@ Players will have 2 minutes to guess as many correct answers they can based on p
     - [x] +1 for 1 hint
 - [x] a function that stores user highscore and notifies them when this has been beaten
 
-
-To Do
-
-[x] remove alert on answer submission
-[x] make a skip button
-[x] hint button focuses on typing
-[x] no repeat questions
-[x]change styling per category 
-[x]remove hint button once pressed
-[x]change name of header to match the current category
-[x]keep input and submit / skip buttons same size 
-[ ]make more responsive for smaller screen size
-[x]write instructions for start screen using overlay
-
-Make score etc stack over eachother 
 
 
 

@@ -175,9 +175,7 @@ body {
             margin-bottom: 30px;
             margin-top: 16px;
             justify-content: center;
-            height: 100px;
-            position: sticky;
-            top: 0;
+            height: 200px;
         }
 
         &__score {
@@ -218,6 +216,29 @@ body {
 @media only screen and (max-width: 468px) {
     .playerCard {
         width: 95vw;
+
+
+        &__top{
+            height: 100px;
+        }
+
+        &__middle{
+            height: 200px;
+        }
+
+        &__bottom{
+            height: 150px;
+        }
+
+    }
+
+
+    #answerSubmit{
+        display: none;
+    }
+
+    #currentQuestion{
+        font-size: 10px;
     }
 }
 
