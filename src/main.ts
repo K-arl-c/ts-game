@@ -61,7 +61,7 @@ function startCountdown(duration: number) {
   const timer = setInterval(() => {
 
     if (timeRemaining) {
-      timeRemaining.textContent = `Time Remaining: ${duration}`;
+      timeRemaining.innerHTML = `Time Remaining: <strong> ${duration}</strong>`;
     }
 
     if (duration <= 0) {
@@ -72,7 +72,7 @@ function startCountdown(duration: number) {
         if(showAnswerDiv)showAnswerDiv.classList.add("hidden");
         if(startGame)startGame.classList.remove("hidden");
         if(instructions)instructions.classList.remove("hidden");
-        if(currentQuestion)currentQuestion.textContent = `Game Over! You scored ${currentScoreValue} and your highscore is ${highScoreValue}`;
+        if(currentQuestion)currentQuestion.innerHTML = `Game Over! <br> <br> You scored ${currentScoreValue} and your highscore is ${highScoreValue}`;
         toggleBorderStyle();
         phraserTitle();
 }

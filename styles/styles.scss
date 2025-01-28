@@ -1,4 +1,19 @@
-h1{
+* {
+    font-family: "Inter";
+    font-size: 20px;
+}
+
+html {
+    font-size: clamp(14px, 1.5vw, 18px);
+}
+
+p,
+button,
+input {
+    font-size: 1rem;
+}
+
+h1 {
     font-weight: 800;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
@@ -7,28 +22,25 @@ button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
-    font-size: clamp(0.9rem, 1vw, 1rem);
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
     transition: border-color 0.25s;
     margin-top: 8px;
+    font-size: 1rem;
 }
 
 button:hover {
     border-color: #ffffff;
 }
 
-#hintButton{
+#hintButton {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.61);
 }
 
 
 
-*{
-    font-family: "Inter";
-    font-size: 20px;
-}
+
 
 body {
     // height: 100vh;
@@ -37,21 +49,19 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #15202b;
-    padding: 1rem;
-    margin: 0;
 }
 
 
-.playerCard{
+.playerCard {
     width: 75vw;
     background-color: white;
-    height: 75vh;
+    max-height: 900px;
     display: flex;
     flex-direction: column;
     border: 10px solid black;
     border-radius: 10px;
 
-    &__top{
+    &__top {
         width: 100%;
         height: 15%;
         display: flex;
@@ -59,7 +69,7 @@ body {
         margin-bottom: 3%;
     }
 
-    &__score{
+    &__score {
         width: 15vw;
         height: 100%;
         background-color: rgb(255, 255, 255);
@@ -76,7 +86,7 @@ body {
         margin-top: 20px;
     }
 
-    &__title{
+    &__title {
         width: 15%;
         height: 100%;
         // background-color: gainsboro;
@@ -91,50 +101,51 @@ body {
         // font-size: ;
     }
 
-    &__timer{
-    width: 15vw;
-    height: 100%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 2px 2px black;
-    border-radius: 10px;
-    border: 2px solid black;
-    text-align: center;
-    padding: 5px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 20px;
-    margin-top: 20px;
-    
+    &__timer {
+        width: 15vw;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 2px 2px black;
+        border-radius: 10px;
+        border: 2px solid black;
+        text-align: center;
+        padding: 5px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 20px;
+        margin-top: 20px;
+
     }
 
-    &__middle{
+    &__middle {
         width: 100%;
         height: 50%;
         display: flex;
         justify-content: center;
         margin-bottom: 3%;
-        }
-
-    &__question {
-    width: 50%;
-    height: 100%;
-    background-color: #15202b;
-    border-radius: 10px;
-    border: 2px solid black;
-    text-align: center;
-    padding: 5px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    box-shadow: 2px 2px black;
-    color: white;
     }
 
-    &__bottom{
+    &__question {
+        width: 50%;
+        height: 100%;
+        background-color: #15202b;
+        border-radius: 10px;
+        border: 2px solid black;
+        text-align: center;
+        padding: 5px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        box-shadow: 2px 2px black;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    &__bottom {
         display: flex;
         width: 100%;
         height: 35%;
@@ -143,29 +154,30 @@ body {
         align-items: center;
     }
 
-    &__answer{
+    &__answer {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         width: 100%;
+        font-size: 1rem;
     }
 }
 
 @media only screen and (max-width: 1000px) {
     .playerCard {
         width: 85vw;
-        height: 90vw;
+        height: auto;
 
-        &__top{
+        &__top {
             flex-direction: column;
             align-items: center;
             margin-bottom: 10px;
-            height: auto;
             justify-content: center;
+            height: 300px;
         }
 
-        &__score{
+        &__score {
             width: 50%;
             height: auto;
             margin: 0;
@@ -173,19 +185,29 @@ body {
             margin-bottom: 10px;
         }
 
-        &__title{
+        &__title {
             margin: 0;
             order: 1;
             padding: 0;
+            height: auto;
         }
 
-        &__timer{
+        &__timer {
             margin: 0px;
             width: 50%;
+            height: auto;
         }
 
-        &__question{
+        &__middle{
+            height: 300px;
+        }
+
+        &__question {
             width: 75%;
+        }
+
+        &__bottom{
+            height: 300px;
         }
     }
 }
@@ -197,15 +219,15 @@ body {
 }
 
 
-p{
+p {
     margin: 0
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-#playerInput{
+#playerInput {
     margin-bottom: 10px;
     margin-top: 10px;
     border: 1px solid lightgray;
@@ -214,17 +236,17 @@ p{
     text-align: center;
 }
 
-#playerInput:focus{
+#playerInput:focus {
     outline: solid black 2px;
 }
 
-#playerInput::placeholder{
+#playerInput::placeholder {
     text-align: center;
     font-size: 1vw;
 }
 
 @media only screen and (max-width: 1000px) {
-#playerInput::placeholder {
+    #playerInput::placeholder {
         font-size: 1.5vw;
     }
 }
@@ -235,11 +257,12 @@ p{
     }
 }
 
-#answerSubmit{
+#answerSubmit {
     max-width: 200px;
     min-width: 20%;
     background-color: #15202b;
     color: white;
+    font-size: 1rem;
 }
 
 #skipQuestion {
@@ -248,50 +271,51 @@ p{
     max-width: 200px;
     min-width: 20%;
     margin-bottom: 10px;
+    font-size: 1rem;
 }
 
-#instructions{
+#instructions {
     width: 160px;
     height: 50px;
 }
 
-#startGame{
-        width: 160px;
-        height: 50px;
-        background-color: #15202b;
-        color: white;
+#startGame {
+    width: 160px;
+    height: 50px;
+    background-color: #15202b;
+    color: white;
 }
 
-.people{
-    border-color:rgb(255, 236, 62);
+.people {
+    border-color: rgb(255, 236, 62);
 }
 
 
-.world{
+.world {
     border-color: rgb(7, 63, 136);
 }
 
-.object{
+.object {
     border-color: rgb(135, 70, 255);
 }
 
 
-.action{
+.action {
     border-color: rgb(255, 166, 0);
 }
 
-.nature{
+.nature {
     border-color: rgb(0, 161, 35);
 }
 
-.peopleInner{
+.peopleInner {
     background-color: rgb(255, 236, 62);
     box-shadow: 2px 2px 2px black;
     color: black;
 }
 
 
-.worldInner{
+.worldInner {
     background-color: rgb(7, 63, 136);
     color: white;
     box-shadow: 2px 2px 2px black;
@@ -316,9 +340,9 @@ p{
     box-shadow: 2px 2px 2px black;
 }
 
-#currentQuestion{
+#currentQuestion {
     font-weight: bold;
-    font-size: 120%;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);  
 }
 
 #peopleInstruction {
@@ -343,7 +367,7 @@ p{
     color: rgb(0, 161, 35);
 }
 
-#overlay{
+#overlay {
     position: fixed;
     display: none;
     width: 100%;
@@ -353,12 +377,12 @@ p{
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index:2;
+    z-index: 2;
     cursor: pointer;
     color: white;
 }
 
-#overlayText{
+#overlayText {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -371,4 +395,3 @@ p{
     border-radius: 8px;
     padding: 50px;
 }
-
