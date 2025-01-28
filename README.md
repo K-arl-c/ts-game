@@ -1,6 +1,6 @@
-# TypeScript Game
+# [Phraser](https://k-arl-c.github.io/ts-game/) (ts-game)
 
-[Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
+<!-- [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/) -->
 
 <!-- Create a working Game: The main task is to create a Game not only will this test your understanding of TypeScript but how you break down a problem.
 
@@ -10,9 +10,21 @@ Get a better understanding of how to scope a larger project: We want to see a cl
 
 Apply what you are learning: This is a great place to apply what you have been learning on all of the course so far. When you get it functioning really push on the UI, use SCSS, BEM, anything else you find on the web....really go mad! -->
 
-Phraser - a single player, online guessing game inspired by Articulate.
+[Phraser](https://k-arl-c.github.io/ts-game/) - a single player, online guessing game inspired by Articulate.
 
-Players will have 2 minutes to guess as many correct answers they can based on prompts given from different categories. They will have the option to receive an additional hint at the cost of a lower score. At the end of 2 minutes, they will be provided with their score and their high score will be tracked.
+Players will have 1 minute to guess as many correct answers they can based on prompts given from different categories. They will have the option to receive an additional hint at the cost of a lower score. At the end of the time, they will be provided with their score and their high score will be tracked.
+
+There are 5 categories:
+
+- Object
+- Action (words that end in 'ing')
+- People
+- World
+- Nature
+
+Click [here](https://k-arl-c.github.io/ts-game/) to play
+
+
 
 ## HTML / SCSS
 - [x] all information to be stored on a 'card' to mimic a boardgame question care

@@ -18,30 +18,6 @@ h1 {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-weight: 500;
-    font-family: inherit;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    margin-top: 8px;
-    font-size: 1rem;
-}
-
-button:hover {
-    border-color: #ffffff;
-}
-
-#hintButton {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.61);
-}
-
-
-
-
-
 body {
     // height: 100vh;
     display: flex;
@@ -89,16 +65,12 @@ body {
     &__title {
         width: 15%;
         height: 100%;
-        // background-color: gainsboro;
-        // border-radius: 10px;
-        // border: 2px solid black;
         text-align: center;
         padding: 5px;
         margin: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        // font-size: ;
     }
 
     &__timer {
@@ -164,106 +136,6 @@ body {
     }
 }
 
-@media only screen and (max-width: 1000px) {
-    .playerCard {
-        width: 85vw;
-        height: auto;
-
-        &__top {
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 30px;
-            margin-top: 16px;
-            justify-content: center;
-            height: 200px;
-        }
-
-        &__score {
-            width: 50%;
-            height: auto;
-            margin: 0;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        &__title {
-            margin: 0;
-            order: 1;
-            padding: 0;
-            height: auto;
-            width: auto;
-        }
-
-        &__timer {
-            margin: 0px;
-            width: 50%;
-            height: auto;
-        }
-
-        &__middle{
-            height: 300px;
-        }
-
-        &__question {
-            width: 75%;
-        }
-
-        &__bottom{
-            height: 200px;
-        }
-    }
-
-    #playerInput {
-            font-size: 16px;
-            touch-action: manipulation;
-    }
-}
-
-@media only screen and (max-width: 468px) {
-    body{
-        max-height: 600px;
-    }
-
-    .playerCard {
-        width: 95vw;
-        height: 100%;
-
-        &__top{
-            height: 100px;
-            margin-top: 20px;
-        }
-
-        &__middle{
-            height: 200px;
-            order: 1;
-        }
-
-        &__bottom{
-            height: 60px;
-            margin-bottom: 10px;
-            margin-top: 8px;
-        }
-
-    }
-
-
-    #answerSubmit{
-        display: none;
-    }
-
-    #currentQuestion{
-        font-size: 10px;
-    }
-
-    #instructions {
-            display: none;
-    }
-    #answerConfirmation{
-        font-size: 10px;
-    }
-}
-
-
 p {
     margin: 0
 }
@@ -289,18 +161,6 @@ p {
 #playerInput::placeholder {
     text-align: center;
     font-size: 1vw;
-}
-
-@media only screen and (max-width: 1000px) {
-    #playerInput::placeholder {
-        font-size: 1.5vw;
-    }
-}
-
-@media only screen and (max-width: 468px) {
-    #playerInput::placeholder {
-        font-size: 2vw;
-    }
 }
 
 #answerSubmit {
@@ -332,6 +192,66 @@ p {
     color: white;
 }
 
+
+#currentQuestion {
+    font-weight: bold;
+    font-size: clamp(1.2rem, 2vw, 1.4rem);  
+}
+
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+    color: white;
+}
+
+#overlayText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #15202b;
+    text-align: center;
+    border-radius: 8px;
+    padding: 50px;
+}
+
+// button styling
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+button:hover {
+    border-color: #ffffff;
+}
+
+#hintButton {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.61);
+}
+
+
+// category styling
 .people {
     border-color: rgb(255, 236, 62);
 }
@@ -386,11 +306,6 @@ p {
     box-shadow: 2px 2px 2px black;
 }
 
-#currentQuestion {
-    font-weight: bold;
-    font-size: clamp(1.2rem, 2vw, 1.6rem);  
-}
-
 #peopleInstruction {
     color: rgb(255, 232, 27);
 }
@@ -413,31 +328,116 @@ p {
     color: rgb(0, 161, 35);
 }
 
-#overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    cursor: pointer;
-    color: white;
+// media queries
+
+@media only screen and (max-width: 1000px) {
+    .playerCard {
+        width: 85vw;
+        height: auto;
+
+        &__top {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            margin-top: 16px;
+            justify-content: center;
+            height: 200px;
+        }
+
+        &__score {
+            width: 50%;
+            height: auto;
+            margin: 0;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        &__title {
+            margin: 0;
+            order: 1;
+            padding: 0;
+            height: auto;
+            width: auto;
+        }
+
+        &__timer {
+            margin: 0px;
+            width: 50%;
+            height: auto;
+        }
+
+        &__middle {
+            height: 300px;
+        }
+
+        &__question {
+            width: 75%;
+        }
+
+        &__bottom {
+            height: 200px;
+        }
+    }
+
+    #playerInput {
+        font-size: 16px;
+        touch-action: manipulation;
+    }
 }
 
-#overlayText {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    // font-size: 50px;
-    color: white;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #15202b;
-    text-align: center;
-    border-radius: 8px;
-    padding: 50px;
+@media only screen and (max-width: 468px) {
+    body {
+        max-height: 600px;
+    }
+
+    .playerCard {
+        width: 95vw;
+        height: 100%;
+
+        &__top {
+            height: 100px;
+            margin-top: 20px;
+        }
+
+        &__middle {
+            height: 200px;
+            order: 1;
+        }
+
+        &__bottom {
+            height: 60px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+    }
+
+
+    #answerSubmit {
+        display: none;
+    }
+
+    #currentQuestion {
+        font-size: 10px;
+    }
+
+    #instructions {
+        display: none;
+    }
+
+    #answerConfirmation {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #playerInput::placeholder {
+        font-size: 1.5vw;
+    }
+}
+
+@media only screen and (max-width: 468px) {
+    #playerInput::placeholder {
+        font-size: 2vw;
+    }
 }
