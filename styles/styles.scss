@@ -230,6 +230,7 @@ body {
 
         &__top{
             height: 100px;
+            margin-top: 20px;
         }
 
         &__middle{
@@ -238,7 +239,9 @@ body {
         }
 
         &__bottom{
-            height: 150px;
+            height: 60px;
+            margin-bottom: 10px;
+            margin-top: 8px;
         }
 
     }
